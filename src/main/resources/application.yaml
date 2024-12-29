@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    gateway:
+      routes:
+      - id: example-router
+        uri: http://localhost:3000
+        predicates:
+        - Path=/v1/posts/**
+        filters:
+        - RewritePath=/v1/posts(?<segment>.*), /posts$\{segment}
+        - name: Authentication
+        - name: Authorization
+          args:
+            scopes: role-management
+            # scopes: openid email
+server:
+  port: 8081
+
+jwt:
+  client_id: keycloak-client
+  client_secret: HiZr7wDbGyPwt30Ds3XMmRUi5C0J4ocP
+  jwks_url: http://localhost:8080/realms/develop/protocol/openid-connect/certs
+  introspect_url: http://localhost:8080/realms/develop/protocol/openid-connect/token/introspect
+  issuer: http://localhost:8080/realms/develop
+  ttl: 60 # minute
+  refresh_timeout: 10 # minute
+  outage_ttl: 120 # minute
+  leeway: 5 # minute
+

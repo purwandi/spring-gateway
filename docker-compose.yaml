@@ -1,0 +1,12 @@
+services:
+  keycloak:
+    image: keycloak/keycloak:25.0.6
+    command:
+      - start-dev
+    env_file:
+      - .local.env
+    volumes:
+      - ./storage/keycloak:/opt/keycloak/data
+    ports:
+      - 8080:8080
+      - 9091:9091

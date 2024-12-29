@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "jwt.jwks_url",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.issuer",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.ttl",
+      "type": "java.lang.Integer",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.refresh_timeout",
+      "type": "java.lang.Integer",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.outage_ttl",
+      "type": "java.lang.Integer",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.leeway",
+      "type": "java.lang.Integer",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.client_id",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.client_secret",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.jwks_url'"
+    },
+    {
+      "name": "jwt.introspect_url",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.jwks_url'"
+    }
+  ]
+}
