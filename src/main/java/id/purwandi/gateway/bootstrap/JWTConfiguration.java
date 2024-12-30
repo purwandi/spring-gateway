@@ -32,7 +32,7 @@ public class JWTConfiguration {
     private JWTConfig config;
 
     @Bean
-    public DefaultJWTProcessor<SecurityContext> getJWTProcessor() {
+    DefaultJWTProcessor<SecurityContext> getJWTProcessor() {
         DefaultJWTProcessor<SecurityContext> jwtProcessor = new DefaultJWTProcessor<>();
         jwtProcessor.setJWSTypeVerifier(new DefaultJOSEObjectTypeVerifier<>(JOSEObjectType.JWT));
 

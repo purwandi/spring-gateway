@@ -6,3 +6,7 @@ GET http://localhost:8081/v1/posts
 ### Legimitate access token
 GET http://localhost:8081/v1/posts
 Authorization: Bearer {{token}}
+
+
+### Legimitate access token
+GET http://localhost:8081/v1/comments/1

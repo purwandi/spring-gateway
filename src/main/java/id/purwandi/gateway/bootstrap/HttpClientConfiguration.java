@@ -1,23 +1,25 @@
 package id.purwandi.gateway.bootstrap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import id.purwandi.gateway.config.JWTConfig;
 import lombok.extern.slf4j.Slf4j;
 import reactor.netty.http.client.HttpClient;
 
-@Component
+@Configuration
 @Slf4j
 public class HttpClientConfiguration {
 
     @Autowired
     JWTConfig config;
 
-    public HttpClient JWTHttpClient() {
+    @Bean(name = "JWTHttpClient")
+    HttpClient JWTHttpClient() {
         HttpClient client = HttpClient.create().baseUrl(config.getIntrospectUrl());
 
-        log.info("config : jwt http client");
+        log.info("Loaded: jwt http client...");
 
         return client;
     }

@@ -1,6 +1,7 @@
 services:
   keycloak:
     image: keycloak/keycloak:25.0.6
+    container_name: spring-keycloak
     command:
       - start-dev
     env_file:
@@ -10,3 +11,16 @@ services:
     ports:
       - 8080:8080
       - 9091:9091
+
+  valkey:
+    image: valkey/valkey:7-alpine
+    container_name: spring-valkey
+    entrypoint:
+      - valkey-server
+    command:
+      - /usr/local/etc/valkey/valkey.conf
+    volumes:
+      - ./storage/valkey:/data
+      - ./conf.d/valkey/valkey.conf:/usr/local/etc/valkey/valkey.conf
+    ports:
+      - 6379:6379

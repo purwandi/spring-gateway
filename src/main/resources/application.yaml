@@ -2,6 +2,13 @@ spring:
   application:
     name: gateway
 
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: password
+      database: 1
+
   cloud:
     gateway:
       routes:
@@ -15,7 +22,14 @@ spring:
         - name: Authorization
           args:
             scopes: role-management
-            # scopes: openid email
+      - id: comments-router
+        uri: http://localhost:3000
+        predicates:
+        - Path=/v1/comments/**
+        filters:
+        - RewritePath=/v1/comments(?<segment>.*), /comments$\{segment}
+        - name: Cache
+
 server:
   port: 8081
 
